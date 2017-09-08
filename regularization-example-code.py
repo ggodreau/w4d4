@@ -38,7 +38,7 @@ linreg = LinearRegression()
 linreg.fit(X_train, y_train)
 
 # examine the coefficients
-print linreg.coef_
+print(linreg.coef_)
 
 # make predictions
 y_pred = linreg.predict(X_test)
@@ -46,7 +46,7 @@ y_pred = linreg.predict(X_test)
 # calculate RMSE
 from sklearn import metrics
 import numpy as np
-print np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+print(np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 
 # ridge regression
 
@@ -55,17 +55,17 @@ from sklearn.linear_model import Ridge
 ridgereg = Ridge(alpha=0, normalize=True)
 ridgereg.fit(X_train, y_train)
 y_pred = ridgereg.predict(X_test)
-print np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+print(np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 
 
 # try alpha=0.1
 ridgereg = Ridge(alpha=0.1, normalize=True)
 ridgereg.fit(X_train, y_train)
 y_pred = ridgereg.predict(X_test)
-print np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+print(np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 
 # examine the coefficients
-print ridgereg.coef_
+print(ridgereg.coef_)
 
 # create an array of alpha values
 alpha_range = 10.**np.arange(-2, 3)
@@ -79,7 +79,7 @@ ridgeregcv.alpha_
 
 # predict method uses the best alpha value
 y_pred = ridgeregcv.predict(X_test)
-print np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+print(np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 
 
 # Lasso regression
@@ -87,16 +87,16 @@ print np.sqrt(metrics.mean_squared_error(y_test, y_pred))
 from sklearn.linear_model import Lasso
 lassoreg = Lasso(alpha=0.001, normalize=True)
 lassoreg.fit(X_train, y_train)
-print lassoreg.coef_
+print(lassoreg.coef_)
 
 # try alpha=0.01 and examine coefficients
 lassoreg = Lasso(alpha=0.01, normalize=True)
 lassoreg.fit(X_train, y_train)
-print lassoreg.coef_
+print(lassoreg.coef_)
 
 # calculate RMSE (for alpha=0.01)
 y_pred = lassoreg.predict(X_test)
-print np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+print(np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 
 # select the best alpha with LassoCV
 from sklearn.linear_model import LassoCV
@@ -105,8 +105,8 @@ lassoregcv.fit(X_train, y_train)
 lassoregcv.alpha_
 
 # examine the coefficients
-print lassoregcv.coef_
+print(lassoregcv.coef_)
 
 # predict method uses the best alpha value
 y_pred = lassoregcv.predict(X_test)
-print np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+print(np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
