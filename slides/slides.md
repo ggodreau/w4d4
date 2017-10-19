@@ -67,7 +67,7 @@ footer: ![inline 10%](images/ga.png) J. Pounders, DSI-EAST-1
 
 $$
 \begin{align}
-RSS(\beta_0, \beta_1) &= \sum_{i=1}^n \left( \hat{y}_i - y_i \right)^2 \\
+RSS(\beta_0, \beta_1) &= \sum_{i=1}^n \left( y_i - \hat{y}_i \right)^2 \\
     &= \sum_{i=1}^n \left( \hat{y}_i - \beta_0 - \beta_1 x_i \right)^2
 \end{align}
 $$
